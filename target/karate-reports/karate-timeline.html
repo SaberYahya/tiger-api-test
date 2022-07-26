@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"features\/SecurityTest[1:5]","start":1658350922709,"end":1658350923223,"title":"features\/SecurityTest[1:5] 17:02:02.709-17:02:03.223 generate token with valid username and password"},{"id":2,"group":1,"content":"features\/SecurityTest[2:14]","start":1658350923234,"end":1658350923594,"title":"features\/SecurityTest[2:14] 17:02:03.234-17:02:03.594 generate token with Invalid username and valid password"},{"id":3,"group":1,"content":"features\/SecurityTest[3:25]","start":1658350923605,"end":1658350924063,"title":"features\/SecurityTest[3:25] 17:02:03.605-17:02:04.063 generate token with valid username and Invalid password"},{"id":4,"group":1,"content":"features\/AddAddressFeature[1:12]","start":1658350907900,"end":1658350913180,"title":"features\/AddAddressFeature[1:12] 17:01:47.900-17:01:53.180 Add address to an account"},{"id":5,"group":1,"content":"features\/TokenVerifyTesting[1:6]","start":1658350925164,"end":1658350925840,"title":"features\/TokenVerifyTesting[1:6] 17:02:05.164-17:02:05.840 Verify valid Token."},{"id":6,"group":1,"content":"features\/TokenVerifyTesting[2:21]","start":1658350925854,"end":1658350926126,"title":"features\/TokenVerifyTesting[2:21] 17:02:05.854-17:02:06.126 verify wrong token"},{"id":7,"group":1,"content":"features\/TokenVerifyTesting[3:32]","start":1658350926135,"end":1658350926840,"title":"features\/TokenVerifyTesting[3:32] 17:02:06.135-17:02:06.840 verify \/api\/token\/verify with Valid token but Invalid User Name. status code should be 400"},{"id":8,"group":1,"content":"features\/newScenario[1:40]","start":1658350918181,"end":1658350919674,"title":"features\/newScenario[1:40] 17:01:58.181-17:01:59.674 Add new Account with Existing Email address","className":"failed"},{"id":9,"group":1,"content":"features\/newScenario[2:68]","start":1658350919733,"end":1658350920435,"title":"features\/newScenario[2:68] 17:01:59.733-17:02:00.435 Add car to existing Account"},{"id":10,"group":1,"content":"features\/newScenario[3:84]","start":1658350920447,"end":1658350921055,"title":"features\/newScenario[3:84] 17:02:00.447-17:02:01.055 Add Phone Number to Existing Account"},{"id":11,"group":1,"content":"features\/newScenario[4:100]","start":1658350921067,"end":1658350921684,"title":"features\/newScenario[4:100] 17:02:01.067-17:02:01.684 Add Address to Existing Account"},{"id":12,"group":1,"content":"features\/TokenGenerator[1:5]","start":1658350924522,"end":1658350925012,"title":"features\/TokenGenerator[1:5] 17:02:04.522-17:02:05.012 Generate Valid Token with CSR Supervisor user."},{"id":13,"group":1,"content":"features\/CreateAccountFeature[1:13]","start":1658350916175,"end":1658350917513,"title":"features\/CreateAccountFeature[1:13] 17:01:56.175-17:01:57.513 Create New Account using Data generator;"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
